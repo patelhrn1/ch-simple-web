@@ -25,4 +25,16 @@ node {
       junit '**/target/surefire-reports/TEST-*.xml'
       archive 'target/*.jar'
    }
+  stage('Deploy') {
+         when {
+       expression {
+     currentBuild.result == null || currentBuild.result == 'SUCCESS' ①
+       }
+  }
+  steps {
+  sh 'make publish'
+  }
+  }
+  }
+
 }
