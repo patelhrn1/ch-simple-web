@@ -16,9 +16,11 @@ node {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
    }
+   stage('Input'){
    timeout(time: 60, unit: 'SECONDS') {
-     input 'Do you want to proceed to the Deployment?'
-}
+     input 'input 'Should we proceed?''
+      }
+   }
    stage('Results') {
       junit '**/target/surefire-reports/TEST-*.xml'
       archive 'target/*.jar'
