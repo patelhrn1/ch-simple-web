@@ -32,9 +32,7 @@ node {
        }
   }
   steps {
-  sh 'make publish'
+      echo "Deploying..."
   }
   }
-  }
-
 }
