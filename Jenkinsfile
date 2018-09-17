@@ -18,7 +18,7 @@ node {
    }
    stage('Input'){
    timeout(time: 60, unit: 'SECONDS') {
-     input 'input 'Should we proceed?''
+      input 'Should we proceed?'
       }
    }
    stage('Results') {
