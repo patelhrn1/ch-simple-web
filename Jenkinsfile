@@ -16,6 +16,9 @@ node {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
    }
+   stage('CodeAnalysis'){
+   bat 'mvn sonar:sonar'
+   }
    stage('Input'){
    timeout(time: 60, unit: 'SECONDS') {
       input 'Should we proceed?'
